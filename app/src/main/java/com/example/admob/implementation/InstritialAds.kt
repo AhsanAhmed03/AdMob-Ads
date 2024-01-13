@@ -24,7 +24,7 @@ object InstritialAds {
             object : AdManagerInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(p0: LoadAdError) {
                     super.onAdFailedToLoad(p0)
-                    Log.e("InterstitalLogs","Interstital Ad Failde to Load: "+ p0.message)
+                    Log.e("InterstitalLogs","Interstital Ad Failed to Load: "+ p0.message)
                 }
 
                 override fun onAdLoaded(p0: AdManagerInterstitialAd) {
@@ -60,6 +60,7 @@ object InstritialAds {
 
                 override fun onAdImpression() {
                     super.onAdImpression()
+                    loadInterstitial(context)
                     Log.e("InterstitalLogs","Interstital Ad Impression Counted...")
                 }
 
@@ -67,7 +68,6 @@ object InstritialAds {
                     super.onAdShowedFullScreenContent()
                     Log.e("InterstitalLogs","Interstital Ad Shown...")
                     interstitalAd = null
-                    loadInterstitial(context)
                 }
             }
 

@@ -1,5 +1,6 @@
 package com.example.admob.implementation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val simple_banner_btn = findViewById<Button>(R.id.simple_banner)
         val rectangle_banner_btn = findViewById<Button>(R.id.mediumRec_banner)
         val large_banner_btn = findViewById<Button>(R.id.large_banner)
-        val show_instrititial_btn = findViewById<Button>(R.id.interstital_ad_btn)
+        val recycler_view_btn = findViewById<Button>(R.id.recycler_view_btn)
 
         simple_banner_btn.setOnClickListener {
             BannerAds.createBanner(this,banner_ad_layout,this@MainActivity, 1)
@@ -34,8 +35,9 @@ class MainActivity : AppCompatActivity() {
             BannerAds.createBanner(this,banner_ad_layout,this@MainActivity, 3)
         }
 
-        show_instrititial_btn.setOnClickListener {
-            InstritialAds.showInterstital(this, this@MainActivity)
+        recycler_view_btn.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
+            startActivity(intent)
         }
     }
 }
